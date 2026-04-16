@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bdb188b8.css",
+    "main.js": "/static/js/main.86a04db4.js",
+    "static/js/239.144140ac.chunk.js": "/static/js/239.144140ac.chunk.js",
+    "static/js/977.fd6e7fee.chunk.js": "/static/js/977.fd6e7fee.chunk.js",
+    "static/js/455.8b1e5c32.chunk.js": "/static/js/455.8b1e5c32.chunk.js",
+    "static/media/nec-logo.jpeg": "/static/media/nec-logo.9711b58ea2631fc8e1f2.jpeg",
+    "index.html": "/index.html",
+    "main.bdb188b8.css.map": "/static/css/main.bdb188b8.css.map",
+    "main.86a04db4.js.map": "/static/js/main.86a04db4.js.map",
+    "239.144140ac.chunk.js.map": "/static/js/239.144140ac.chunk.js.map",
+    "977.fd6e7fee.chunk.js.map": "/static/js/977.fd6e7fee.chunk.js.map",
+    "455.8b1e5c32.chunk.js.map": "/static/js/455.8b1e5c32.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bdb188b8.css",
+    "static/js/main.86a04db4.js"
+  ]
+}

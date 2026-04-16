@@ -1,0 +1,397 @@
+/* R&D Submission Portal Scoped Styles */
+.rnd-portal {
+    --background: hsl(210, 20%, 98%);
+    --foreground: hsl(215, 25%, 15%);
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(215, 25%, 15%);
+    --primary: hsl(217, 72%, 50%);
+    --primary-foreground: hsl(0, 0%, 100%);
+    --secondary: hsl(210, 30%, 95%);
+    --secondary-foreground: hsl(215, 25%, 25%);
+    --muted: hsl(210, 20%, 96%);
+    --muted-foreground: hsl(215, 15%, 50%);
+    --accent: hsl(200, 80%, 48%);
+    --border: hsl(214, 20%, 90%);
+    --input: hsl(214, 20%, 90%);
+    --destructive: hsl(0, 72%, 55%);
+    --success: hsl(152, 60%, 42%);
+    --warning: hsl(38, 92%, 50%);
+    --radius: 0.625rem;
+
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+.rnd-portal * {
+    box-sizing: border-box;
+}
+
+.rnd-portal h1,
+.rnd-portal h2,
+.rnd-portal h3,
+.rnd-portal h4,
+.rnd-portal h5,
+.rnd-portal h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 0;
+}
+
+/* Header */
+.rnd-portal .header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: hsla(0, 0%, 100%, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.rnd-portal .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.rnd-portal .header-icon {
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.rnd-portal .header-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.rnd-portal .header-subtitle {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin: 0;
+}
+
+/* Main Container */
+.rnd-portal .main-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.rnd-portal form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Section Card */
+.rnd-portal .section-card {
+    position: relative;
+    background: var(--card);
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    padding: 1.5rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.rnd-portal .section-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.rnd-portal .section-indicator {
+    width: 4px;
+    border-radius: 9999px;
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    bottom: 1rem;
+}
+
+.rnd-portal .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-left: 0.75rem;
+}
+
+.rnd-portal .section-icon {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: hsla(217, 72%, 50%, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.rnd-portal .section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.rnd-portal .section-body {
+    padding-left: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Grids */
+.rnd-portal .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.rnd-portal .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.rnd-portal .grid-2-lg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+
+    .rnd-portal .grid-2,
+    .rnd-portal .grid-3,
+    .rnd-portal .grid-2-lg {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form Elements */
+.rnd-portal .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.rnd-portal .form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.rnd-portal .required {
+    color: var(--destructive);
+    margin-left: 2px;
+}
+
+.rnd-portal .form-hint {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    margin-top: -0.125rem;
+    margin-bottom: 0.25rem;
+}
+
+.rnd-portal .form-input,
+.rnd-portal .form-select {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid var(--input);
+    background: var(--background);
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    color: var(--foreground);
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.rnd-portal .form-input::placeholder {
+    color: var(--muted-foreground);
+}
+
+.rnd-portal .form-input:focus,
+.rnd-portal .form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px hsla(217, 72%, 50%, 0.15);
+}
+
+.rnd-portal .form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Chip/Toggle */
+.rnd-portal .chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.rnd-portal .chip {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.rnd-portal .chip:hover {
+    border-color: hsla(217, 72%, 50%, 0.4);
+}
+
+.rnd-portal .chip.active {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+}
+
+/* Upload Zone */
+.rnd-portal .upload-zone {
+    border: 2px dashed var(--border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: hsla(210, 20%, 96%, 0.3);
+}
+
+.rnd-portal .upload-zone:hover {
+    border-color: hsla(217, 72%, 50%, 0.5);
+    background: hsla(217, 72%, 50%, 0.05);
+}
+
+.rnd-portal .upload-icon {
+    font-size: 2rem;
+    color: var(--muted-foreground);
+    margin-bottom: 0.5rem;
+}
+
+.rnd-portal .upload-text {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin: 0;
+}
+
+.rnd-portal .upload-hint {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    margin-top: 0.25rem;
+}
+
+/* Status Badge */
+.rnd-portal .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.rnd-portal .status-pending {
+    background: hsla(38, 92%, 50%, 0.15);
+    color: var(--warning);
+}
+
+.rnd-portal .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.rnd-portal .status-dot-pending {
+    background: var(--warning);
+}
+
+/* Info Box */
+.rnd-portal .info-box {
+    border-radius: 0.5rem;
+    background: hsla(210, 20%, 96%, 0.5);
+    padding: 1rem;
+}
+
+.rnd-portal .info-box p {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin: 0;
+}
+
+/* Buttons */
+.rnd-portal .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+}
+
+.rnd-portal .btn {
+    padding: 0.625rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.rnd-portal .btn-primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.rnd-portal .btn-primary:hover {
+    opacity: 0.9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.rnd-portal .btn-secondary {
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    border: 1px solid var(--border);
+}
+
+.rnd-portal .btn-secondary:hover {
+    background: hsla(210, 30%, 93%, 1);
+}
+
+.rnd-portal .rnd-fade-in {
+    animation: rndFadeIn 0.4s ease-out forwards;
+}
+
+@keyframes rndFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
