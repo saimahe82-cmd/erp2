@@ -53,6 +53,14 @@ export const AuthProvider = ({ children }) => {
         return result;
     };
 
+    const hodSignup = (data) => {
+        const result = authService.hodSignup(data);
+        if (result.success) {
+            setUser(result.user);
+        }
+        return result;
+    };
+
     const logout = () => {
         authService.logout();
         setUser(null);
@@ -66,7 +74,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, loading, login, studentSignup, staffSignup, logout, refreshUser }}>
+        <AuthContext.Provider value={{ user, loading, login, studentSignup, staffSignup, hodSignup, logout, refreshUser }}>
             {children}
         </AuthContext.Provider>
     );

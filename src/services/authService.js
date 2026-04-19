@@ -115,6 +115,22 @@ const authService = {
         return { success: true, user: newUser };
     },
 
+    // ── HOD Signup ──
+    hodSignup: (data) => {
+        const existing = db.getUserByEmail(data.email);
+        if (existing) return { success: false, message: 'An account with this email already exists.' };
+        if (data.password !== data.confirmPassword) return { success: false, message: 'Passwords do not match.' };
+        const newUser = db.addUser({
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            role: 'hod',
+            department: data.department,
+        });
+        db.setCurrentUser(newUser);
+        return { success: true, user: newUser };
+    },
+
     // ── Logout ──
     logout: () => {
         db.clearCurrentUser();

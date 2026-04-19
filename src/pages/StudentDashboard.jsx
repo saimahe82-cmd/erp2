@@ -1511,7 +1511,7 @@ const MyDetailsView = ({ user, setActivePage }) => {
                                                         type="file"
                                                         id={`file-${semKey}`}
                                                         style={{ display: 'none' }}
-                                                        accept=".pdf,image/*"
+                                                        accept="image/*"
                                                         onChange={async (e) => {
                                                             const file = e.target.files[e.target.files.length - 1];
                                                             if (!file) return;
@@ -1526,29 +1526,50 @@ const MyDetailsView = ({ user, setActivePage }) => {
                                                             reader.readAsDataURL(file);
                                                         }}
                                                     />
-                                                    <button
-                                                        onClick={() => document.getElementById(`file-${semKey}`).click()}
-                                                        style={{
-                                                            padding: '0.35rem 0.75rem',
-                                                            borderRadius: '0.5rem',
-                                                            border: '1px solid #6366f1',
-                                                            background: semData.marksheet ? '#eff6ff' : '#fff',
-                                                            color: '#6366f1',
-                                                            fontSize: '0.75rem',
-                                                            fontWeight: 600,
-                                                            cursor: 'pointer',
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            gap: '0.4rem'
-                                                        }}
-                                                    >
-                                                        <i className={`fas ${semData.marksheet ? 'fa-check-circle' : 'fa-file-arrow-up'}`} />
-                                                        {semData.marksheet ? 'Uploaded' : 'Upload Marksheet'}
-                                                    </button>
-                                                    {semData.marksheet && (
-                                                        <span style={{ fontSize: '0.65rem', color: '#64748b', maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                                                            {semData.marksheetName}
-                                                        </span>
+                                                    {semData.marksheet ? (
+                                                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                                            {semData.marksheet.startsWith('data:image') && (
+                                                                <img src={semData.marksheet} alt="Result Preview" style={{ height: '32px', width: '32px', borderRadius: '4px', objectFit: 'cover', border: '1px solid #e2e8f0', cursor: 'pointer' }} onClick={() => window.open(semData.marksheet)} title="View Photo" />
+                                                            )}
+                                                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                                                <span style={{ fontSize: '0.65rem', color: '#10b981', fontWeight: 600 }}><i className="fas fa-check-circle" /> Photo Uploaded</span>
+                                                                <span style={{ fontSize: '0.55rem', color: '#64748b', maxWidth: '80px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                                                    {semData.marksheetName}
+                                                                </span>
+                                                            </div>
+                                                            <button title="Remove Photo" type="button" onClick={() => {
+                                                                const newGPAs = { ...extra.semesterGPAs, [semKey]: { ...semData, marksheet: null, marksheetName: '' } };
+                                                                updateExtra('semesterGPAs', newGPAs);
+                                                                // reset file input
+                                                                const fileInput = document.getElementById(`file-${semKey}`);
+                                                                if(fileInput) fileInput.value = '';
+                                                            }} style={{ background: 'rgba(239,68,68,0.1)', color: '#ef4444', border: 'none', borderRadius: '4px', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', fontSize: '10px' }}>
+                                                                <i className="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    ) : (
+                                                        <button
+                                                            onClick={() => document.getElementById(`file-${semKey}`).click()}
+                                                            style={{
+                                                                padding: '0.35rem 0.75rem',
+                                                                borderRadius: '0.5rem',
+                                                                border: '1px dashed #6366f1',
+                                                                background: '#e0e7ff',
+                                                                color: '#4f46e5',
+                                                                fontSize: '0.7rem',
+                                                                fontWeight: 700,
+                                                                cursor: 'pointer',
+                                                                display: 'flex',
+                                                                alignItems: 'center',
+                                                                gap: '0.4rem',
+                                                                transition: 'all 0.2s'
+                                                            }}
+                                                            onMouseEnter={e => { e.currentTarget.style.background = '#c7d2fe'; }}
+                                                            onMouseLeave={e => { e.currentTarget.style.background = '#e0e7ff'; }}
+                                                        >
+                                                            <i className="fas fa-camera" />
+                                                            Upload Result Photo
+                                                        </button>
                                                     )}
                                                 </div>
                                             </div>

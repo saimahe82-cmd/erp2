@@ -87,7 +87,7 @@ const HodLogin = () => {
 
 
             <div className="form-footer">
-                Don't have an account? <Link to="/staff-signup">Sign up here</Link>
+                Don't have an account? <Link to="/hod-signup">Sign up here</Link>
             </div>
         </div>
     );

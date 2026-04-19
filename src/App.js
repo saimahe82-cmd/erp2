@@ -13,6 +13,7 @@ import FacultyDashboard from './pages/FacultyDashboard';
 import HodDashboard from './pages/HodDashboard';
 import StudentSignup from './pages/StudentSignup';
 import StaffSignup from './pages/StaffSignup';
+import HodSignup from './pages/HodSignup';
 import LeaveApplication from './pages/LeaveApplication';
 import ODApplication from './pages/ODApplication';
 import RndSubmission from './pages/RndSubmission';
@@ -34,6 +35,7 @@ function App() {
                     <Route path="/student-login" element={<StudentLogin />} />
                     <Route path="/student-signup" element={<StudentSignup />} />
                     <Route path="/staff-signup" element={<StaffSignup />} />
+                    <Route path="/hod-signup" element={<HodSignup />} />
 
                     {/* Student Dashboard Layout Routes */}
                     <Route element={<DashboardLayout />}>
